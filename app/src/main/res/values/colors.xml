@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Orange 500 -->
+    <color name="colorPrimary">#FF9800</color>
+    <!-- Orange 700 -->
+    <color name="colorPrimaryDark">#F57C00</color>
+    <!-- Amber A200 -->
+    <color name="colorAccent">#FFD740</color>
+</resources>
