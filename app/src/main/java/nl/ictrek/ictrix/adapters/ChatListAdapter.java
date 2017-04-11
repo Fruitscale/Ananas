@@ -21,12 +21,13 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
-        public TextView textViewTitle, textViewSummary;
+        public TextView textViewTitle, textViewSummary, textViewTime;
         public ViewHolder(View view) {
             super(view);
             imageView = (ImageView)view.findViewById(R.id.imageView_chatImage);
             textViewTitle = (TextView)view.findViewById(R.id.textView_chatTitle);
             textViewSummary = (TextView)view.findViewById(R.id.textView_chatSummary);
+            textViewTime = (TextView)view.findViewById(R.id.textView_chatTime);
         }
     }
 
@@ -48,6 +49,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
         // TODO: handle image
         holder.textViewTitle.setText(chat.getTitle());
         holder.textViewSummary.setText(chat.getSummary());
+        holder.textViewTime.setText(chat.getTime());
     }
 
     @Override

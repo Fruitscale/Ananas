@@ -3,6 +3,7 @@ package nl.ictrek.ictrix;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nl.ictrek.ictrix.adapters.ChatListAdapter;
 
 public class MainActivity extends AppCompatActivity
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerViewAdapter;
     private RecyclerView.LayoutManager mRecyclerViewLayoutManager;
+    private List<Chat> mChatList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,16 @@ public class MainActivity extends AppCompatActivity
         mRecyclerViewLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mRecyclerViewLayoutManager);
 
-        mRecyclerViewAdapter = new ChatListAdapter();
+        mChatList = new ArrayList<>();
+        mChatList.add(new Chat("ICTrix development chat", "Test", "12:34", Chat.Type.GROUP));
+        mChatList.add(new Chat("Matrix HQ", "Test 2", "13:37", Chat.Type.GROUP));
+
+        mRecyclerViewAdapter = new ChatListAdapter(mChatList);
+
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
     @Override
