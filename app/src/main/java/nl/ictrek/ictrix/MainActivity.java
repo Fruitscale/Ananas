@@ -107,7 +107,9 @@ public class MainActivity extends AppCompatActivity
 
         mChatList = new ArrayList<>();
         mChatList.add(new Chat("ICTrix development chat", "Test", "12:34", Chat.Type.GROUP));
-        mChatList.add(new Chat("Matrix HQ", "Test 2", "13:37", Chat.Type.GROUP));
+        mChatList.add(new Chat("This is a chat with a long title to test", "It also has a long chat summary; this is for testing purposes", "10:01", Chat.Type.PERSONAL));
+        mChatList.add(new Chat("Matrix HQ", "Test 3", "13:37", Chat.Type.GROUP));
+        mChatList.add(new Chat("Foo Bar", "Baz", "04:20", Chat.Type.PERSONAL));
 
         mRecyclerViewAdapter = new ChatListAdapter(mChatList);
 
