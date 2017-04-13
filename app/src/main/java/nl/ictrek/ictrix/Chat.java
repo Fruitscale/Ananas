@@ -33,7 +33,9 @@ public class Chat {
         return mSummary;
     }
 
-    public String getTime() { return mTime; }
+    public String getTime() {
+        return mTime;
+    }
 
     public Type getType() {
         return mType;
