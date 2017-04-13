@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="nl.ictrek.ictrix.LoginActivity">
+    tools:context="nl.ictrek.ictrix.LoginActivity"
+    android:theme="@style/AppTheme.NoActionBar">
 
     <!-- Login progress -->
     <ProgressBar
@@ -18,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
     <!-- Login form -->
     <LinearLayout
@@ -26,9 +27,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="bottom"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_tall_divider">
 
+        <!-- Email -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +51,7 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <!-- Password -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,6 +71,7 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <!-- Server -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,6 +89,7 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <!-- Sign in -->
         <Button
             android:id="@+id/email_sign_in_button"
             style="?android:textAppearanceSmall"
@@ -93,6 +102,7 @@
             android:textColor="@color/textAndIcons"
             android:textStyle="bold" />
 
+        <!-- Register -->
         <TextView
             android:id="@+id/register_link"
             android:layout_width="match_parent"

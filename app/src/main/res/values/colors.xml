@@ -15,5 +15,5 @@
     <!-- Blue A200 -->
     <color name="colorSecundaryAccent">#448AFF</color>
     <!-- White -->
-    <color name="textAndIcons">#FFFFFF</color>
+    <color name="textAndIcons">#000000</color>
 </resources>
