@@ -6,6 +6,9 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,13 +23,25 @@ import android.view.animation.AnimationUtils;
 
 import com.github.clans.fab.FloatingActionMenu;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import nl.ictrek.ictrix.adapters.ChatListAdapter;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mRecyclerViewAdapter;
+    private RecyclerView.LayoutManager mRecyclerViewLayoutManager;
+    private List<Chat> mChatList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -72,6 +87,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        // Drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -80,6 +96,27 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Chat list
+        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_chatList);
+
+        mRecyclerView.setHasFixedSize(true);
+
+        mRecyclerViewLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mRecyclerViewLayoutManager);
+
+        mChatList = new ArrayList<>();
+        mChatList.add(new Chat("ICTrix development chat", "Test", "12:34", Chat.Type.GROUP));
+        mChatList.add(new Chat("This is a chat with a long title to test", "It also has a long chat summary; this is for testing purposes", "10:01", Chat.Type.PERSONAL));
+        mChatList.add(new Chat("Matrix HQ", "Test 3", "13:37", Chat.Type.GROUP));
+        mChatList.add(new Chat("Foo Bar", "Baz", "04:20", Chat.Type.PERSONAL));
+
+        mRecyclerViewAdapter = new ChatListAdapter(mChatList);
+
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
     @Override
