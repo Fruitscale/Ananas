@@ -47,7 +47,14 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         Chat chat = mChatList.get(position);
         // TODO: handle image
-        holder.textViewTitle.setText(chat.getTitle());
+        String title = chat.getTitle();
+        if (chat.getType() == Chat.Type.GROUP) {
+            holder.textViewTitle.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.ic_people_black_24dp, 0, 0, 0
+            );
+            title = " " + title;
+        }
+        holder.textViewTitle.setText(title);
         holder.textViewSummary.setText(chat.getSummary());
         holder.textViewTime.setText(chat.getTime());
     }
