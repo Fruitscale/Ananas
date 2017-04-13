@@ -8,4 +8,12 @@
     <color name="colorAccent">#FFD740</color>
 
     <color name="semi_transparent">#8c616161</color>
+    <!-- Blue 500 -->
+    <color name="colorSecundary">#2196F3</color>
+    <!-- Blue 700 -->
+    <color name="colorSecundaryDark">#1976D2</color>
+    <!-- Blue A200 -->
+    <color name="colorSecundaryAccent">#448AFF</color>
+    <!-- White -->
+    <color name="textAndIcons">#FFFFFF</color>
 </resources>
