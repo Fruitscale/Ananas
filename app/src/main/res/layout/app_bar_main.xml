@@ -33,12 +33,13 @@
         android:paddingBottom="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        fab:menu_backgroundColor="@color/semi_transparent"
+        fab:menu_backgroundColor="@color/semiTransparentGreyransparent"
         fab:menu_colorNormal="@color/colorAccent"
         fab:menu_colorPressed="@color/colorAccent"
         fab:menu_fab_label="New personal chat"
         fab:menu_labels_ellipsize="end"
-        fab:menu_labels_singleLine="true">
+        fab:menu_labels_singleLine="true"
+        app:menu_backgroundColor="@color/semiTransparentGrey">
 
         <com.github.clans.fab.FloatingActionButton
             android:layout_width="wrap_content"

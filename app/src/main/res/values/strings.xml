@@ -3,6 +3,23 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_login">Sign in</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">Your password is too short</string>
+    <string name="error_incorrect_password">Your password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="action_register"><a href="http://matrix.org/docs/projects/try-matrix-now.html#servers">Don\'t have an account?</a></string>
+    <string name="prompt_server">Matrix server</string>
+    <string name="error_invalid_server">This server address is invalid</string>
+    <string name="error_incorrect_credentials">This email or password is incorrect</string>
+    <string name="error_server_unreachable">This server is unreachable</string>
+    <string name="default_matrix_server">https://matrix.org/</string>
 </resources>
