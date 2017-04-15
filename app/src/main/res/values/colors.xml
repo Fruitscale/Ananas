@@ -9,4 +9,7 @@
 
     <!-- Black -->
     <color name="textAndIcons">@android:color/black</color>
+
+    <!-- FAM background -->
+    <color name="semiTransparentGrey">#8c616161</color>
 </resources>
