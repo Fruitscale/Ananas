@@ -42,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         mDropoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDropoutIsOpen = !mDropoutIsOpen;
                 if (mDropoutIsOpen) {
                     rotateDown.start();
                     collapseView(mDropoutMenu);
@@ -50,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                     rotateUp.start();
                     expandView(mDropoutMenu);
                 }
+                mDropoutIsOpen = !mDropoutIsOpen;
             }
         });
     }
