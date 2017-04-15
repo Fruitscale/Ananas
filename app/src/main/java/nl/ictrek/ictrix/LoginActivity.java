@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 public class LoginActivity extends AppCompatActivity {
     public static final int INTERPOLATED_TIME_END = 1;
 
-    private boolean mDropoutRotatedUp;
+    private boolean mDropoutIsOpen;
     private View mDropoutButton;
     private ImageView mDropoutIcon;
     private View mDropoutMenu;
@@ -37,13 +37,13 @@ public class LoginActivity extends AppCompatActivity {
         final AnimatorSet rotateDown = new AnimatorSet();
         rotateDown.play(ObjectAnimator.ofFloat(mDropoutIcon, "rotation", 180, 0));
 
-        mDropoutRotatedUp = false;
+        mDropoutIsOpen = false;
 
         mDropoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDropoutRotatedUp = !mDropoutRotatedUp;
-                if (mDropoutRotatedUp) {
+                mDropoutIsOpen = !mDropoutIsOpen;
+                if (mDropoutIsOpen) {
                     rotateDown.start();
                     collapseView(mDropoutMenu);
                 } else {
