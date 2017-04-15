@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="nl.ictrek.ictrix.LoginActivity"
-    android:theme="@style/AppTheme.NoActionBar">
+    android:theme="@style/AppTheme.NoActionBar"
+    tools:context="nl.ictrek.ictrix.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <!-- Login form -->
         <LinearLayout
@@ -33,10 +34,10 @@
             android:layout_gravity="bottom"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
+            android:divider="@drawable/empty_tall_divider"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:showDividers="middle"
-            android:divider="@drawable/empty_tall_divider">
+            android:showDividers="middle">
 
             <!-- Email -->
             <android.support.design.widget.TextInputLayout
@@ -51,7 +52,7 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:textColor="@color/textAndIcons"/>
+                    android:textColor="@color/textAndIcons" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -71,27 +72,60 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:textColor="@color/textAndIcons"/>
+                    android:textColor="@color/textAndIcons" />
 
             </android.support.design.widget.TextInputLayout>
 
-            <!-- Server -->
-            <android.support.design.widget.TextInputLayout
+            <!-- Hide/Show server view -->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/advanced_options"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/AppTheme.TextAndIconsTextLabel">
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true">
 
-                <EditText
-                    android:id="@+id/server"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/advanced_options"
+                    android:textColor="@color/textAndIcons"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/dropout_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@drawable/ic_keyboard_arrow_down_black_24dp" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/server_options"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <!-- Server -->
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_server"
-                    android:inputType="textUri"
-                    android:maxLines="1"
-                    android:textColor="@color/textAndIcons"
-                    android:text="@string/default_matrix_server"/>
+                    android:theme="@style/AppTheme.TextAndIconsTextLabel">
 
-            </android.support.design.widget.TextInputLayout>
+                    <EditText
+                        android:id="@+id/server"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_server"
+                        android:inputType="textUri"
+                        android:maxLines="1"
+                        android:text="@string/default_matrix_server"
+                        android:textColor="@color/textAndIcons" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
             <!-- Sign in -->
             <Button
@@ -111,11 +145,11 @@
                 android:id="@+id/register_link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/action_register"
-                android:linksClickable="true"
-                android:textColorLink="@color/textAndIcons"
+                android:autoLink="web"
                 android:gravity="center"
-                android:autoLink="web"/>
+                android:linksClickable="true"
+                android:text="@string/action_register"
+                android:textColorLink="@color/textAndIcons" />
 
         </LinearLayout>
     </LinearLayout>
