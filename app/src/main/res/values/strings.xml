@@ -22,4 +22,5 @@
     <string name="error_incorrect_credentials">This email or password is incorrect</string>
     <string name="error_server_unreachable">This server is unreachable</string>
     <string name="default_matrix_server">https://matrix.org/</string>
+    <string name="advanced_options">Advanced options</string>
 </resources>
