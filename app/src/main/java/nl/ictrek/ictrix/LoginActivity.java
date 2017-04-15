@@ -15,39 +15,40 @@ import android.widget.LinearLayout;
  */
 
 public class LoginActivity extends AppCompatActivity {
-    private boolean dropoutRotatedUp;
-    private View dropoutButton;
-    private ImageView dropoutIcon;
-    private View dropoutMenu;
+    public static final int INTERPOLATED_TIME_END = 1;
+
+    private boolean mDropoutRotatedUp;
+    private View mDropoutButton;
+    private ImageView mDropoutIcon;
+    private View mDropoutMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        dropoutButton = findViewById(R.id.advanced_options);
-        dropoutIcon = (ImageView) findViewById(R.id.dropout_icon);
-        dropoutMenu = findViewById(R.id.server_options);
+        mDropoutButton = findViewById(R.id.advanced_options);
+        mDropoutIcon = (ImageView) findViewById(R.id.dropout_icon);
+        mDropoutMenu = findViewById(R.id.server_options);
 
         final AnimatorSet rotateUp = new AnimatorSet();
-        rotateUp.play(ObjectAnimator.ofFloat(dropoutIcon, "rotation", 0, 180));
+        rotateUp.play(ObjectAnimator.ofFloat(mDropoutIcon, "rotation", 0, 180));
 
         final AnimatorSet rotateDown = new AnimatorSet();
-        rotateDown.play(ObjectAnimator.ofFloat(dropoutIcon, "rotation", 180, 0));
+        rotateDown.play(ObjectAnimator.ofFloat(mDropoutIcon, "rotation", 180, 0));
 
-        dropoutRotatedUp = false;
+        mDropoutRotatedUp = false;
 
-        dropoutButton.setOnClickListener(new View.OnClickListener() {
+        mDropoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dropoutRotatedUp) {
+                mDropoutRotatedUp = !mDropoutRotatedUp;
+                if (mDropoutRotatedUp) {
                     rotateDown.start();
-                    dropoutRotatedUp = false;
-                    collapseView(dropoutMenu);
+                    collapseView(mDropoutMenu);
                 } else {
                     rotateUp.start();
-                    dropoutRotatedUp = true;
-                    expandView(dropoutMenu);
+                    expandView(mDropoutMenu);
                 }
             }
         });
@@ -86,7 +87,9 @@ public class LoginActivity extends AppCompatActivity {
         Animation animation = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if (interpolatedTime == 1) {
+                // interpolatedTime - The value of the normalized time (0.0 to 1.0) after it has
+                // been run through the interpolation function.
+                if (interpolatedTime == INTERPOLATED_TIME_END) {
                     view.setVisibility(View.GONE);
                 } else {
                     view.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
