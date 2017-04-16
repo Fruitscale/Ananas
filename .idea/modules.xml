@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ICTrix.iml" filepath="$PROJECT_DIR$/ICTrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ananas.iml" filepath="$PROJECT_DIR$/Ananas.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

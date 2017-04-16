@@ -50,7 +50,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
         String title = chat.getTitle();
         if (chat.getType() == Chat.Type.GROUP) {
             holder.textViewTitle.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_people_black_24dp, 0, 0, 0
+                    R.drawable.ic_people_black_18dp, 0, 0, 0
             );
             title = " " + title;
         }
