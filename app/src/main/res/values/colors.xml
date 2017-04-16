@@ -8,4 +8,9 @@
     <color name="colorAccent">#FFD740</color>
 
     <color name="semi_transparent">#8c616161</color>
+    <!-- Black -->
+    <color name="textAndIcons">@android:color/black</color>
+    
+    <!-- FAM background -->
+    <color name="semiTransparentGrey">#8c616161</color>
 </resources>

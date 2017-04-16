@@ -16,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.widget.Toast;
+
+import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         final FloatingActionMenu fam = (FloatingActionMenu) findViewById(R.id.fab);
+        final FloatingActionButton fabGroup = (FloatingActionButton) findViewById(R.id.fab_group);
         fam.setClosedOnTouchOutside(true);
 
         final AnimatorSet animateOut = new AnimatorSet();
@@ -54,18 +58,25 @@ public class MainActivity extends AppCompatActivity
         fam.setIconToggleAnimatorSet(animateOut);
         fam.getMenuIconView().setImageResource(R.drawable.ic_add_black_24dp);
 
-        fam.setOnMenuButtonClickListener(new View.OnClickListener(){
+        fam.setOnMenuButtonClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 fam.toggle(true);
                 if (fam.isOpened()) {
-                    fam.getMenuIconView().setImageResource(R.drawable.ic_add_black_24dp);
-                    fam.setIconToggleAnimatorSet(animateOut);
-                } else {
-                    fam.getMenuIconView().setImageResource(R.drawable.ic_create_black_24dp);
-                    fam.setIconToggleAnimatorSet(animateIn);
+                    // TODO: Replace toast with real action
+                    Toast toast = Toast.makeText(getBaseContext(), "Create new private chat", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
+            }
+        });
+
+        fabGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fam.close(true);
+                Toast toast = Toast.makeText(getBaseContext(), "Create new group chat", Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
 
@@ -93,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // Chat list
-        mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView_chatList);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView_chatList);
 
         mRecyclerView.setHasFixedSize(true);
 
@@ -154,7 +165,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_new_group) {
             // Handle the new group action
-        } else if(id == R.id.nav_settings) {
+        } else if (id == R.id.nav_settings) {
             // Handle the settings action
         }
 

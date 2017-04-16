@@ -17,4 +17,23 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.TextAndIconsEditText" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/textAndIcons</item>
+        <item name="android:textColor">@color/textAndIcons</item>
+    </style>
+
+    <style name="AppTheme.TextAndIconsEditTextLayout" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/textAndIcons</item>
+        <item name="android:textColor">@color/textAndIcons</item>
+    </style>
+
+    <style name="AppTheme.TextAndIconsTextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/textAndIcons</item>
+        <item name="android:textSize">20sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/textAndIcons</item>
+        <item name="colorControlNormal">@color/textAndIcons</item>
+        <item name="colorControlActivated">@color/textAndIcons</item>
+    </style>
 </resources>
