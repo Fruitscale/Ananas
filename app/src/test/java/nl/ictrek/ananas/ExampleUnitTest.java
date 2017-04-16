@@ -1,4 +1,4 @@
-package nl.ictrek.ictrix;
+package nl.ictrek.ananas;
 
 import org.junit.Test;
 

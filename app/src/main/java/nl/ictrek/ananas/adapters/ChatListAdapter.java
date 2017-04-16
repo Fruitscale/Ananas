@@ -1,4 +1,4 @@
-package nl.ictrek.ictrix.adapters;
+package nl.ictrek.ananas.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import nl.ictrek.ictrix.Chat;
-import nl.ictrek.ictrix.R;
+import nl.ictrek.ananas.Chat;
+import nl.ictrek.ananas.R;
 
 /**
  * Created by Koen Bolhuis on 11-Apr-17.
