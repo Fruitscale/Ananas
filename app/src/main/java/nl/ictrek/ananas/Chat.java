@@ -1,6 +1,4 @@
-package nl.ictrek.ictrix;
-
-import android.util.TimeUtils;
+package nl.ictrek.ananas;
 
 /**
  * Created by Koen Bolhuis on 11-Apr-17.

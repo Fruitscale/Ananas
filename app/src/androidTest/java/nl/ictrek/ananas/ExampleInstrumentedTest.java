@@ -1,4 +1,4 @@
-package nl.ictrek.ictrix;
+package nl.ictrek.ananas;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

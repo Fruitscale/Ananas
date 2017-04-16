@@ -1,4 +1,4 @@
-package nl.ictrek.ictrix;
+package nl.ictrek.ananas;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -23,7 +23,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.ictrek.ictrix.adapters.ChatListAdapter;
+import nl.ictrek.ananas.adapters.ChatListAdapter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

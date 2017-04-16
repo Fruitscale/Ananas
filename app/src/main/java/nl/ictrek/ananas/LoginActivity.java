@@ -1,4 +1,4 @@
-package nl.ictrek.ictrix;
+package nl.ictrek.ananas;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
