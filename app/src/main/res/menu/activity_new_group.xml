@@ -2,25 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- Search for contacts -->
+    <!-- http://stackoverflow.com/questions/27049294/searchview-doesnt-work-since-app-compat -->
     <item
         android:id="@+id/search_contacts"
+        android:icon="@drawable/ic_search_black_24dp"
         android:title="@string/search_for_contacts"
-        app:showAsAction="collapseActionView|ifRoom"
-        android:icon="@drawable/ic_search_black_48dp"
-        android:actionViewClass="android.support.v7.widget.SearchView"/>
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="collapseActionView|ifRoom" />
 
     <!-- Enable E2E encryption -->
     <item
         android:id="@+id/enable_encryption"
+        android:icon="@drawable/ic_lock_outline_black_24dp"
         android:title="@string/disable_end_to_end_encryption"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_lock_outline_black_48dp" />
+        app:showAsAction="ifRoom" />
 
     <!-- Create the group -->
     <item
         android:id="@+id/create_group"
+        android:icon="@drawable/ic_check_black_24dp"
         android:title="@string/create_the_group"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_check_black_48dp" />
+        app:showAsAction="always" />
 
 </menu>

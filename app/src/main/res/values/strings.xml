@@ -23,7 +23,7 @@
     <string name="error_server_unreachable">This server is unreachable</string>
     <string name="default_matrix_server">https://matrix.org/</string>
     <string name="advanced_options">Advanced options</string>
-    <string name="create_new_group">Create a new group</string>
+    <string name="create_new_group">New Group</string>
     <string name="group_name">Group name</string>
     <string name="no_contact_select">Add people to this group by clicking on a contact or by searching for their username.</string>
     <string name="username_hint">username</string>

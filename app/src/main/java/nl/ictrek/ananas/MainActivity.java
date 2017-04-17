@@ -2,6 +2,7 @@ package nl.ictrek.ananas;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -75,8 +76,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 fam.close(true);
-                Toast toast = Toast.makeText(getBaseContext(), "Create new group chat", Toast.LENGTH_SHORT);
-                toast.show();
+                startActivity(new Intent(MainActivity.this, NewGroupActivity.class));
             }
         });
 
