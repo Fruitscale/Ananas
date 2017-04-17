@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity
         fam.setClosedOnTouchOutside(true);
 
         final AnimatorSet animateOut = new AnimatorSet();
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(fam.getMenuIconView(), "rotation", -180, 0);
+        ObjectAnimator rotate = ObjectAnimator.ofFloat(fam.getMenuIconView(), "rotation", -135, 0);
         animateOut.playTogether(rotate);
 
         final AnimatorSet animateIn = new AnimatorSet();
-        ObjectAnimator rotateback = ObjectAnimator.ofFloat(fam.getMenuIconView(), "rotation", 180, 0);
+        ObjectAnimator rotateback = ObjectAnimator.ofFloat(fam.getMenuIconView(), "rotation", 135, 0);
         animateIn.playTogether(rotateback);
 
         fam.setIconToggleAnimatorSet(animateOut);
