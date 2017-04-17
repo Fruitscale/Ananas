@@ -23,4 +23,15 @@
     <string name="error_server_unreachable">This server is unreachable</string>
     <string name="default_matrix_server">https://matrix.org/</string>
     <string name="advanced_options">Advanced options</string>
+    <string name="create_new_group">Create a new group</string>
+    <string name="group_name">Group name</string>
+    <string name="no_contact_select">Add people to this group by clicking on a contact or by searching for their username.</string>
+    <string name="username_hint">username</string>
+    <string name="no_contacts">You don\'t have any contacts :(</string>
+    <string name="enable_end_to_end_encryption">Enable end to end encryption</string>
+    <string name="create_the_group">Create the group</string>
+    <string name="search_for_contacts">Search for contacts</string>
+    <string name="disable_end_to_end_encryption">Disable end to end encryption</string>
+    <string name="choose_picture">Choose picture</string>
+    <string name="contacts">Contacts</string>
 </resources>

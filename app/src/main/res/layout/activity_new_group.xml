@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="nl.ictrek.ananas.NewGroupActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/create_group_main_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:baselineAligned="false"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:clipToPadding="false"
+                android:background="@color/colorPrimary"
+                android:elevation="4dp">
+                <!-- Round group icon with camera icon on top -->
+                <RelativeLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp" >
+
+                    <!-- Group picture -->
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/group_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_people_black_48dp"
+                        tools:ignore="ContentDescription"
+                        app:civ_fill_color="@color/colorAccent"
+                        app:civ_border_width="0dp"/>
+
+                    <!-- Camera overlay -->
+                    <ImageView
+                        android:layout_margin="0dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        app:srcCompat="@drawable/ic_camera_black_48dp"
+                        android:contentDescription="@string/choose_picture"
+                        android:alpha="0.7"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+
+                <!-- Chat name -->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/AppTheme.TextAndIconsTextLabel">
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:id="@+id/group_name"
+                        android:inputType="textCapSentences"
+                        android:hint="@string/group_name"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:textColor="@color/textAndIcons"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <!-- List with contacts -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- This should contain all selected contacts -->
+                <ExpandableListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/no_contacts_selected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_contact_select"
+                    android:layout_margin="16dp"/>
+            </LinearLayout>
+
+            <!-- Search bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
+                android:elevation="4dp">
+
+                <SearchView
+                    android:id="@+id/search_contacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:queryHint="@string/username_hint"
+                    android:textColorHint="@color/textAndIcons"
+                    android:queryBackground="@color/colorPrimary"
+                    android:searchIcon="@drawable/ic_search_black_24dp"
+                    android:searchHintIcon="@drawable/ic_search_black_24dp"
+                    android:closeIcon="@drawable/ic_close_black_24dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:textSize="24sp"
+                    android:gravity="center_vertical"
+                    android:text="@string/contacts"
+                    android:textColor="@color/textAndIcons"
+                    android:shadowColor="@color/textAndIcons"/>
+
+            </LinearLayout>
+
+            <!-- This should contain all contacts + search results -->
+            <LinearLayout
+                android:id="@+id/unselected_contacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/no_contacts"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
