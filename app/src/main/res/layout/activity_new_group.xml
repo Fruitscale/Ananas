@@ -13,96 +13,102 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="64dp"
+            android:background="@color/colorPrimary"
+            android:baselineAligned="false"
+            android:clipToPadding="false"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+            <!-- Round group icon with camera icon on top -->
+            <RelativeLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@color/colorPrimary"
-                android:baselineAligned="false"
-                android:clipToPadding="false"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-                <!-- Round group icon with camera icon on top -->
-                <RelativeLayout
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginRight="8dp">
+                <!-- Group picture -->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/group_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_people_black_48dp"
+                    app:civ_border_width="0dp"
+                    app:civ_fill_color="@color/colorAccent"
+                    tools:ignore="ContentDescription" />
 
-                    <!-- Group picture -->
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/group_icon"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_people_black_24dp"
-                        app:civ_border_width="0dp"
-                        app:civ_fill_color="@color/colorAccent"
-                        tools:ignore="ContentDescription" />
-
-                </RelativeLayout>
+            </RelativeLayout>
 
 
-                <!-- Chat name -->
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
+            <!-- Chat name -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_weight="1"
+                android:theme="@style/AppTheme.TextAndIconsTextLabel">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/group_name"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_weight="1"
-                    android:theme="@style/AppTheme.TextAndIconsTextLabel">
+                    android:hint="@string/group_name"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1"
+                    android:textColor="@color/textAndIcons" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/group_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/group_name"
-                        android:inputType="textCapSentences"
-                        android:maxLines="1"
-                        android:textColor="@color/textAndIcons" />
-                </android.support.design.widget.TextInputLayout>
-            </LinearLayout>
-
-            <!-- List with contacts -->
-            <LinearLayout
+        <!-- List with contacts -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:elevation="4dp"
+            >
+            <!-- This should contain all selected contacts -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/selected_contacts_recyclerview"
+                android:minHeight="48dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!-- This should contain all selected contacts -->
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                android:orientation="horizontal"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                android:elevation="4dp"/>
 
-                <TextView
-                    android:id="@+id/no_contacts_selected"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:text="@string/no_contact_select" />
-            </LinearLayout>
-
-            <!-- This should contain all contacts + search results -->
             <TextView
-                android:id="@+id/text_no_contacts"
+                android:id="@+id/no_contacts_selected"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:text="@string/no_contacts" />
+                android:text="@string/no_contact_select" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/unselected_contacts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
+
         </LinearLayout>
-    </ScrollView>
+
+        <!-- This should contain all contacts + search results -->
+        <TextView
+            android:id="@+id/text_no_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/no_contacts" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/unselected_contacts_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
 </LinearLayout>
