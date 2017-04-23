@@ -57,7 +57,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         if(mSelectedContactList.contains(contact))
             holder.imageViewChecked.setVisibility(View.VISIBLE);
 
-        String contactName = StringUtils.capitalize(contact.getBestName()); // Get the first index of the best name split by a space. So if your name is Barry the Bee, the name will be Barry. After that, capitalize the name.
+        String contactName = contact.getBestName();
         holder.textViewContactName.setText(contactName);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
