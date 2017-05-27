@@ -78,8 +78,9 @@ class NewGroupActivity : AppCompatActivity() {
 
 
         // TODO: Add this inside an onClickListener that listens for clicks on a contact or selectedContact.
-        if (!mContactList.isEmpty())
+        if (!mContactList.isEmpty()) {
             text_no_contacts.visibility = View.GONE
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
