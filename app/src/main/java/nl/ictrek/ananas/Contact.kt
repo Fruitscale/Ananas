@@ -15,9 +15,10 @@ import org.apache.commons.lang3.text.WordUtils
 class Contact(val username: String, val email: String? = null, val phoneNumber: String? = null, val fullName: String? = null) {
     val bestName: String
         get() {
-            if (fullName != null)
+            if (fullName != null) {
                 return WordUtils.capitalize(fullName)
-            else
+            } else {
                 return username
+            }
         }
 }

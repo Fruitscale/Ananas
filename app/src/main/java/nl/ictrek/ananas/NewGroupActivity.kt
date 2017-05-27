@@ -90,7 +90,8 @@ class NewGroupActivity : AppCompatActivity() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView: SearchView = menu.findItem(R.id.search_contacts).actionView as SearchView
         searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(componentName))
+                searchManager.getSearchableInfo(componentName)
+        )
 
         return true
     }

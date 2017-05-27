@@ -31,8 +31,9 @@ class ContactListAdapter(private val mContactList: Set<Contact>, private val mSe
 
     override fun onBindViewHolder(holder: ContactListAdapter.ViewHolder, position: Int) {
         val contact = mContactList.toTypedArray()[position]
-        if (mSelectedContactList.contains(contact))
+        if (mSelectedContactList.contains(contact)) {
             holder.view.new_group_contact_textView.visibility = View.VISIBLE
+        }
 
         val contactName = contact.bestName
         holder.view.new_group_contact_textView.text = contactName

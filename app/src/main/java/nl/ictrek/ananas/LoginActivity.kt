@@ -55,10 +55,11 @@ class LoginActivity : AppCompatActivity() {
             view.visibility = View.VISIBLE
             val animation = object : Animation() {
                 override fun applyTransformation(interpolatedTime: Float, t: Transformation) {
-                    view.layoutParams.height = if (interpolatedTime == 1f)
+                    view.layoutParams.height = if (interpolatedTime == 1f) {
                         LinearLayout.LayoutParams.WRAP_CONTENT
-                    else
+                    } else {
                         (targetHeight * interpolatedTime).toInt()
+                    }
                     view.requestLayout()
                 }
 
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             // 1dp/ms
-            animation.duration = (targetHeight / view.context.resources.displayMetrics.density).toInt().toLong()
+            animation.duration = (targetHeight / view.context.resources.displayMetrics.density).toLong()
             view.startAnimation(animation)
         }
 

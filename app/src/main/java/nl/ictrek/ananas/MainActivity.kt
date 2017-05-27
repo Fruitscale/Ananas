@@ -114,10 +114,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onBackPressed() {
         //drawer
         (findViewById(R.id.drawer_layout) as DrawerLayout).let {
-            if(it.isDrawerOpen(GravityCompat.START))
+            if(it.isDrawerOpen(GravityCompat.START)) {
                 it.closeDrawer(GravityCompat.START)
-            else
+            } else {
                 super.onBackPressed()
+            }
         }
     }
 
