@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/pref_privacy_contact_type"
+        android:entryValues="@array/pref_privacy_contact_values"
+        android:key="privacy_show_last_online_to"
+        android:title="Show last online to" />
+
+    <SwitchPreference
+        android:title="Enable read receipts"
+        android:key="privacy_read_receipts"
+        android:summary="If you turn this off, you cannot see read receipts from others."/>
+</PreferenceScreen>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="encryption_enabled_by_default"
+        android:title="Enable end to end encryption by default" />
+
+    <Preference
+        android:title="Reset certificate"
+        android:key="encryption_new_certificate" />
+</PreferenceScreen>

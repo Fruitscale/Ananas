@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TODO: Add this to the settings header or something. -->
+    <EditTextPreference
+        android:key="profile_username"
+        android:title="Username" />
+
+    <!-- TODO: Add preview for profile picture -->
+    <Preference
+        android:key="profile_picture"
+        android:title="Profile picture" />
+
+</PreferenceScreen>

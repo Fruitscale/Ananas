@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TODO: Add preview here -->
+
+    <!-- TODO: Add color previews -->
+    <EditTextPreference
+        android:title="Primary color"
+        android:key="theme_color_primary" />
+    <EditTextPreference
+        android:title="Secundary color"
+        android:key="theme_color_secondary" />
+
+    <EditTextPreference
+        android:title="Text color"
+        android:key="theme_color_text" />
+
+    <ListPreference
+        android:title="Text size"
+        android:key="theme_text_size" />
+
+    <Preference
+        android:title="Chat background"
+        android:key="theme_background" />
+</PreferenceScreen>
