@@ -149,6 +149,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 // Handle the new group action
             } else if (it == R.id.nav_settings) {
                 // Handle the settings action
+                startActivity(Intent(this, SettingsActivity::class.java))
             }
         }
 
