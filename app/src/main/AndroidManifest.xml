@@ -40,6 +40,15 @@
                 android:resource="@xml/searchable" />
 
         </activity>
+
+        <activity android:name=".ChatActivity"
+            android:label="Chat"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
