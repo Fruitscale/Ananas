@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fab.setOnMenuButtonClickListener {
             fab.toggle(true)
             if (fab.isOpened) {
+                startActivity(Intent(this, ChatActivity::class.java))
                 // TODO: Replace toast with real action
                 Toast.makeText(baseContext, "Create new private chat", Toast.LENGTH_SHORT).show()
             }
@@ -84,7 +85,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close
         )
-        drawer_layout.setDrawerListener(toggle)
+        drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
