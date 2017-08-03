@@ -18,17 +18,17 @@
 
     <PreferenceCategory
         android:title="Over Wi-Fi" >
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="data_wifi_download_images"
             android:title="Automatically download images" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="data_wifi_download_gifs"
             android:title="Automatically download animated gifs" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="data_wifi_download_videos"
             android:title="Automatically download videos" />
@@ -36,17 +36,17 @@
 
     <PreferenceCategory
         android:title="Over mobile data" >
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="data_mobile_download_images"
             android:title="Automatically download images" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="false"
             android:key="data_mobile_download_gifs"
             android:title="Automatically download animated gifs" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="false"
             android:key="data_mobile_download_videos"
             android:title="Automatically download videos" />
@@ -60,17 +60,17 @@
             android:key="data_save_on_sd"
             android:title="Save content on SD-card" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="false"
             android:key="data_auto_save_images"
             android:title="Automatically save images" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="false"
             android:key="data_auto_save_gifs"
             android:title="Automatically save animated gifs" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="false"
             android:key="data_auto_save_videos"
             android:title="Automatically save videos" />
