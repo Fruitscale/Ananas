@@ -88,6 +88,8 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             addPreferencesFromResource(R.xml.pref_notification)
             setHasOptionsMenu(true)
 
+            activity.title = getString(R.string.pref_notification_title)
+
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
@@ -112,6 +114,8 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.pref_profile)
             setHasOptionsMenu(true)
+
+            activity.title = getString(R.string.pref_profile_title)
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -130,6 +134,8 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.pref_encryption)
             setHasOptionsMenu(true)
+
+            activity.title = getString(R.string.pref_encryption_title)
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -148,6 +154,8 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.pref_privacy)
             setHasOptionsMenu(true)
+
+            activity.title = getString(R.string.pref_privacy_title)
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -166,6 +174,8 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.pref_data)
             setHasOptionsMenu(true)
+
+            activity.title = getString(R.string.pref_data_title)
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -184,6 +194,8 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.pref_locale)
             setHasOptionsMenu(true)
+
+            activity.title = getString(R.string.pref_locale_title)
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -202,6 +214,8 @@ class SettingsActivity : AppCompatPreferenceActivity() {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.pref_theme)
             setHasOptionsMenu(true)
+
+            activity.title = getString(R.string.pref_theme_title)
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
