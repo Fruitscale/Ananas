@@ -3,7 +3,8 @@
     <!-- TODO: Add this to the settings header or something. -->
     <EditTextPreference
         android:key="profile_username"
-        android:title="Username" />
+        android:title="Username"
+        android:summary="current_username"/>
 
     <!-- TODO: Add preview for profile picture -->
     <Preference

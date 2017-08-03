@@ -15,13 +15,13 @@
             android:key="notifications_private_ringtone"
             android:ringtoneType="notification"
             android:title="Ringtone" />
-            <SwitchPreference
+            <CheckBoxPreference
                 android:defaultValue="true"
                 android:dependency="notifications_private_enabled"
                 android:key="notifications_private_vibrate"
                 android:title="Vibrate" />
 
-            <SwitchPreference
+            <CheckBoxPreference
                 android:defaultValue="false"
                 android:dependency="notifications_private_enabled"
                 android:key="notifications_private_showcontent"
@@ -45,19 +45,19 @@
             android:ringtoneType="notification"
             android:title="Ringtone" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="notifications_group_enabled"
             android:key="notifications_group_vibrate"
             android:title="Vibrate" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="false"
             android:dependency="notifications_group_enabled"
             android:key="notifications_group_showcontent"
             android:title="Hide content" />
 
-        <SwitchPreference
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="notifications_group_showtag"
             android:title="Send a notification when I get tagged" />

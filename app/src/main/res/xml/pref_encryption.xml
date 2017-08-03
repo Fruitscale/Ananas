@@ -6,6 +6,6 @@
         android:title="Enable end to end encryption by default" />
 
     <Preference
-        android:title="Reset certificate"
+        android:title="Reset keys"
         android:key="encryption_new_certificate" />
 </PreferenceScreen>

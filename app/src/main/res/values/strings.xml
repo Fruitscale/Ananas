@@ -40,7 +40,17 @@
     <string name="title_activity_settings">Settings</string>
 
     <!-- Preferences strings -->
-   <string-array name="pref_privacy_contact_type">
+    <string name="pref_privacy_title">Privacy Settings</string>
+    <string name="pref_data_title">Data Usage &amp; Settings</string>
+    <string name="pref_encryption_title">Encryption Settings</string>
+    <string name="pref_locale_title">Locale Settings</string>
+    <string name="pref_notification_title">Notification Settings</string>
+    <string name="pref_profile_title">Profile Settings</string>
+    <string name="pref_theme_title">Theme &amp; Looks Settings</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+
+    <string-array name="pref_privacy_contact_type">
         <item>Everyone</item>
         <item>Contacts only</item>
         <item>No-one</item>
