@@ -38,9 +38,16 @@ dependencies {
     compile(name: 'olm-sdk', ext: 'aar')
     compile(name: 'matrix-sdk', ext: 'aar')
 
+    // some matrix libraries:
+    compile 'com.squareup.retrofit:retrofit:1.6.1'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.2.0'
+    compile 'com.squareup.okhttp:okhttp:2.2.0'
+    compile 'io.pristine:libjingle:9690@aar'
 
 
-
+    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
+    compile 'com.google.android.gms:play-services-auth:9.8.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
