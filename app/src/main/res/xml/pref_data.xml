@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Data usage" >
+        <!-- TODO: Show some sort of graph -->
+        <Preference
+            android:title="Total data usage: 40 mb"
+            android:key="data_usage_total"/>
+
+        <Preference
+            android:title="Over Wi-Fi: 23 mb"
+            android:key="data_usage_wifi" />
+
+        <Preference
+            android:title="Over mobile data: 17 mb"
+            android:key="data_usage_mobile" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Over Wi-Fi" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="data_wifi_download_images"
+            android:title="Automatically download images" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="data_wifi_download_gifs"
+            android:title="Automatically download animated gifs" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="data_wifi_download_videos"
+            android:title="Automatically download videos" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Over mobile data" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="data_mobile_download_images"
+            android:title="Automatically download images" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="data_mobile_download_gifs"
+            android:title="Automatically download animated gifs" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="data_mobile_download_videos"
+            android:title="Automatically download videos" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Storage" >
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="data_save_on_sd"
+            android:title="Save content on SD-card" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="data_auto_save_images"
+            android:title="Automatically save images" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="data_auto_save_gifs"
+            android:title="Automatically save animated gifs" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="data_auto_save_videos"
+            android:title="Automatically save videos" />
+    </PreferenceCategory>
+</PreferenceScreen>
