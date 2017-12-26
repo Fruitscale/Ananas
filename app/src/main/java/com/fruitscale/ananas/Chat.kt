@@ -1,4 +1,4 @@
-package nl.ictrek.ananas
+package com.fruitscale.ananas
 
 /**
  * Created by Koen Bolhuis on 11-Apr-17.
