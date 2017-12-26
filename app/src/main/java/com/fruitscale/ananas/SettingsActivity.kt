@@ -1,4 +1,4 @@
-package nl.ictrek.ananas
+package com.fruitscale.ananas
 
 
 import android.annotation.TargetApi

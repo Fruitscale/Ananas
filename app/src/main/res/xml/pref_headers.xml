@@ -1,36 +1,36 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
     <header
-        android:fragment="nl.ictrek.ananas.SettingsActivity$ProfilePreferenceFragment"
+        android:fragment="com.fruitscale.ananas.SettingsActivity$ProfilePreferenceFragment"
         android:title="Profile"
         android:icon="@drawable/ic_account_circle_black_24dp"/>
 
     <header
-        android:fragment="nl.ictrek.ananas.SettingsActivity$NotificationPreferenceFragment"
+        android:fragment="com.fruitscale.ananas.SettingsActivity$NotificationPreferenceFragment"
         android:title="Notifications"
         android:icon="@drawable/ic_notifications_black_24dp" />
 
     <header
-        android:fragment="nl.ictrek.ananas.SettingsActivity$EncryptionPreferenceFragment"
+        android:fragment="com.fruitscale.ananas.SettingsActivity$EncryptionPreferenceFragment"
         android:title="Encryption"
         android:icon="@drawable/ic_lock_outline_black_24dp"/>
 
     <header
-        android:fragment="nl.ictrek.ananas.SettingsActivity$PrivacyPreferenceFragment"
+        android:fragment="com.fruitscale.ananas.SettingsActivity$PrivacyPreferenceFragment"
         android:title="Privacy"
         android:icon="@drawable/ic_supervisor_account_black_24dp"/>
 
     <header
-        android:fragment="nl.ictrek.ananas.SettingsActivity$DataPreferenceFragment"
+        android:fragment="com.fruitscale.ananas.SettingsActivity$DataPreferenceFragment"
         android:title="Storage and Data"
         android:icon="@drawable/ic_perm_data_setting_black_24dp"/>
 
     <header
-        android:fragment="nl.ictrek.ananas.SettingsActivity$LocalePreferenceFragment"
+        android:fragment="com.fruitscale.ananas.SettingsActivity$LocalePreferenceFragment"
         android:title="Language and locale"
         android:icon="@drawable/ic_language_black_24dp"/>
 
     <header
-        android:fragment="nl.ictrek.ananas.SettingsActivity$ThemePreferenceFragment"
+        android:fragment="com.fruitscale.ananas.SettingsActivity$ThemePreferenceFragment"
         android:title="Theme"
         android:icon="@drawable/ic_format_paint_black_24dp" />
 
