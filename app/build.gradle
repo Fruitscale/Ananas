@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion android_support_version
     defaultConfig {
         applicationId "nl.ictrek.ananas"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -37,22 +37,34 @@ dependencies {
     // Matrix libraries
     compile(name: 'olm-sdk', ext: 'aar')
     compile(name: 'matrix-sdk', ext: 'aar')
+    compile 'com.squareup.retrofit:retrofit:1.6.1'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
 
+    // Anko
+    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
+    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    compile "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
+    compile "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+    compile "org.jetbrains.anko:anko-design:$anko_version"
+    compile "org.jetbrains.anko:anko-commons:$anko_version"
 
+    // klaxon (JSON)
+    compile 'com.beust:klaxon:0.30'
 
-
-    compile 'com.android.support:appcompat-v7:25.4.0'
-    compile 'com.android.support:design:25.4.0'
+    compile "com.android.support:appcompat-v7:$android_support_version"
+    compile "com.android.support:design:$android_support_version"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:recyclerview-v7:25.4.0'
+    compile "com.android.support:recyclerview-v7:$android_support_version"
     compile 'com.github.clans:fab:1.6.4'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'org.apache.commons:commons-lang3:3.3.2'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile 'com.android.support:support-v4:25.4.0'
-    compile 'com.android.support:support-vector-drawable:25.4.0'
+    compile "com.android.support:support-v4:$android_support_version"
+    compile "com.android.support:support-vector-drawable:$android_support_version"
 }
 repositories {
     mavenCentral()
