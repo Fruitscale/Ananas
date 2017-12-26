@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="nl.ictrek.ananas.NewGroupActivity">
+    tools:context="com.fruitscale.ananas.NewGroupActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/create_group_main_menu"

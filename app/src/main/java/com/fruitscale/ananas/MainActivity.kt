@@ -1,4 +1,4 @@
-package nl.ictrek.ananas
+package com.fruitscale.ananas
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -15,12 +15,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-
+import com.fruitscale.ananas.adapters.ChatListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
-
-import nl.ictrek.ananas.adapters.ChatListAdapter
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 

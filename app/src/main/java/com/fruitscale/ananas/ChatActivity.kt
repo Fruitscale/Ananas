@@ -1,8 +1,7 @@
-package nl.ictrek.ananas
+package com.fruitscale.ananas
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-
+import android.support.v7.app.AppCompatActivity
 import de.hdodenhof.circleimageview.CircleImageView
 
 class ChatActivity : AppCompatActivity() {

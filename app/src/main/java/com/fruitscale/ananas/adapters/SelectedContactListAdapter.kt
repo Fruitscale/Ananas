@@ -1,19 +1,14 @@
-package nl.ictrek.ananas.adapters
+package com.fruitscale.ananas.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-
-import org.apache.commons.lang3.StringUtils
-
-import nl.ictrek.ananas.Contact
-import nl.ictrek.ananas.NewGroupActivity
-import nl.ictrek.ananas.R
-
+import com.fruitscale.ananas.Contact
+import com.fruitscale.ananas.NewGroupActivity
+import com.fruitscale.ananas.R
 import kotlinx.android.synthetic.main.new_group_selected_contact.view.*
+import org.apache.commons.lang3.StringUtils
 
 /**
  * Created by wouter on 18-4-17.

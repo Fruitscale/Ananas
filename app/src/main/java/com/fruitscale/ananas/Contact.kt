@@ -1,4 +1,4 @@
-package nl.ictrek.ananas
+package com.fruitscale.ananas
 
 import org.apache.commons.lang3.text.WordUtils
 
