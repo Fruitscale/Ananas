@@ -20,11 +20,20 @@ class LoginHandler(val context: Context) {
         LoginRestClient(hsConfig).loginWithUser(username, password, callback)
     }
 
-    private fun loginWithMail(hsConfig: HomeserverConnectionConfig,
-                              mail: String,
+    private fun loginWithPhone(hsConfig: HomeserverConnectionConfig,
+                               phone: String,
+                               countryCode: String,
+                               password: String,
+                               callback: SimplerCallback<Credentials>) {
+        LoginRestClient(hsConfig).loginWithPhoneNumber(phone, countryCode, password, callback)
+    }
+
+    private fun loginWith3Pid(hsConfig: HomeserverConnectionConfig,
+                              type: String,
+                              identification: String,
                               password: String,
                               callback: SimplerCallback<Credentials>) {
-        LoginRestClient(hsConfig).loginWith3Pid("email", mail, password, callback)
+        LoginRestClient(hsConfig).loginWith3Pid(type, identification, password, callback)
     }
 
     /**
@@ -47,20 +56,43 @@ class LoginHandler(val context: Context) {
     }
 
     /**
-     * Create a new session with [mail] and [password]
+     * Create a new session with [identification] and [password] for pid3 [type]
      *
      * @param hsConfig The homeserver config
-     * @param mail The mail-address
+     * @param type The 3Pid type
+     * @param identification The identification
      * @param password The password
      * @param onTokenCorrupted What to do when the token is corrupted
      * @param callback The callback
      */
-    fun newSessionWithMail(hsConfig: HomeserverConnectionConfig,
-                           mail: String,
+    fun newSessionWith3Pid(hsConfig: HomeserverConnectionConfig,
+                           type: String,
+                           identification: String,
                            password: String,
                            onTokenCorrupted: (Credentials) -> Unit,
                            callback: SimplerCallback<MXSession>) {
-        loginWithMail(hsConfig, mail, password, callback.copyOnErrors { credentials ->
+        loginWith3Pid(hsConfig, type, identification, password, callback.copyOnErrors { credentials ->
+            callback.onSuccess(newSessionWithCredentials(hsConfig.apply { this.credentials = credentials }, credentials, { onTokenCorrupted(credentials) }))
+        })
+    }
+
+    /**
+     * Create a new session with [phone], [countryCode] and [password]
+     *
+     * @param hsConfig The homeserver config
+     * @param phone The phone number
+     * @param countryCode The country code
+     * @param password The password
+     * @param onTokenCorrupted What to do when the token is corrupted
+     * @param callback The callback
+     */
+    fun newSessionWithPhone(hsConfig: HomeserverConnectionConfig,
+                            phone: String,
+                            countryCode: String,
+                            password: String,
+                            onTokenCorrupted: (Credentials) -> Unit,
+                            callback: SimplerCallback<MXSession>) {
+        loginWithPhone(hsConfig, phone, countryCode, password, callback.copyOnErrors { credentials ->
             callback.onSuccess(newSessionWithCredentials(hsConfig.apply { this.credentials = credentials }, credentials, { onTokenCorrupted(credentials) }))
         })
     }

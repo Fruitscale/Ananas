@@ -53,6 +53,9 @@ dependencies {
     // klaxon (JSON)
     compile 'com.beust:klaxon:0.30'
 
+    // https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber
+    compile group: 'com.googlecode.libphonenumber', name: 'libphonenumber', version: '8.8.8'
+
     compile "com.android.support:appcompat-v7:$android_support_version"
     compile "com.android.support:design:$android_support_version"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'

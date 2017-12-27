@@ -30,8 +30,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
             android:divider="@drawable/empty_tall_divider"
             android:gravity="center_vertical"
             android:orientation="vertical"
@@ -44,17 +44,82 @@
                 android:contentDescription="@string/logo_description"
                 app:srcCompat="@mipmap/ic_launcher" />
 
-            <!-- Email -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in_to_matrix"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textColor="@color/textAndIcons"/>
+
+            <RadioGroup
+                android:id="@+id/select_identification_method"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:checkedButton="@id/select_email"
+                android:textColor="@color/textAndIcons">
+                <RadioButton
+                    android:id="@+id/select_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/email_hint" />
+
+                <RadioButton
+                    android:id="@+id/select_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/username_hint"/>
+
+                <RadioButton
+                    android:id="@+id/select_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/phone_hint"/>
+
+                <RadioButton
+                    android:id="@+id/select_pid3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/pid3_hint"/>
+            </RadioGroup>
+
+            <!-- Pid3 custom type -->
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/identification_pid3_container"
                 android:theme="@style/AppTheme.TextAndIconsTextLabel">
 
                 <EditText
-                    android:id="@+id/email"
+                    android:id="@+id/identification_pid3_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
+                    android:hint="@string/pid3_type_hint"
+                    android:inputType="textShortMessage"
+                    android:maxLines="1"
+                    android:textColor="@color/textAndIcons" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Main identification -->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/identification_main_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                android:theme="@style/AppTheme.TextAndIconsTextLabel">
+
+                <EditText
+                    android:id="@+id/identification_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_hint"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:textColor="@color/textAndIcons" />
@@ -113,7 +178,8 @@
             <LinearLayout
                 android:id="@+id/server_options"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
                 <!-- Server -->
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
