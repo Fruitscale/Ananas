@@ -7,10 +7,8 @@ import org.matrix.androidsdk.rest.model.login.Credentials
 
 /**
  * Sessions should be managed with the [SessionManager]
- *
- * TODO: Add an activity to store the session manager somewhere
  */
-class SessionManager {
+class SessionManager(val context: Context) {
     // UserId + Session
     private val sessions = hashMapOf<String, MXSession>()
     private var currentSession: MXSession? = null
@@ -41,11 +39,9 @@ class SessionManager {
     /**
      * Load the sessions from the config into the list of sessions.
      *
-     * @param context The context
-     *
      * @return The sessions from the config
      */
-    fun loadSessionsFromConfig(context: Context): List<MXSession> {
+    fun loadSessionsFromConfig(): List<MXSession> {
         getSessionsFromConfig(context).let {
             it.forEach {
                 addSession(it)
@@ -70,30 +66,27 @@ class SessionManager {
      */
     fun getCurrentSession() = currentSession ?: if(sessions.values.size == 1) sessions.values.firstOrNull() else null
 
-    companion object {
-        /**
-         * Get the sessions from the config. Please note that this will not add the sessions to the memory
-         *
-         * @param context The context
-         *
-         * @return The sessions from the config
-         */
-        fun getSessionsFromConfig(context: Context): List<MXSession> {
-            val loginHandler = LoginHandler(context)
+    /**
+     * Call this method when the token has been corrupted. This will refresh the token.
+     *
+     * @param credentials The credentials for the token
+     */
+    fun onTokenCorrupted(credentials: Credentials) {
+        getSessionByUserId(credentials.userId)?.refreshToken()
+    }
 
-            return LoginStorage(context).getCredentials().map {
-                loginHandler.newSessionWithCredentials(it, it.credentials, { onTokenCorrupted(it) })
-            }
-        }
+    /**
+     * Get the sessions from the config. Please note that this will not add the sessions to the memory
+     *
+     * @param context The context
+     *
+     * @return The sessions from the config
+     */
+    fun getSessionsFromConfig(context: Context): List<MXSession> {
+        val loginHandler = LoginHandler(context)
 
-        /**
-         * Call this method when the token has been corrupted. This will refresh the token.
-         *
-         * @param credentials The credentials for the token
-         */
-        fun onTokenCorrupted(credentials: Credentials) {
-            TODO()
-            //getSessionByUserId(credentials.userId)?.refreshToken()
+        return LoginStorage(context).getCredentials().map {
+            loginHandler.newSessionWithCredentials(it, it.credentials, { onTokenCorrupted(it) })
         }
     }
 }

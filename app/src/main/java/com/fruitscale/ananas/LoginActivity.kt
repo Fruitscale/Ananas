@@ -1,13 +1,18 @@
 package com.fruitscale.ananas
 
 import android.app.AlertDialog
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import android.net.Uri
 import android.os.Bundle
+import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.EditorInfo
 import com.fruitscale.ananas.callback.SimplerCallback
 import com.fruitscale.ananas.login.LoginHandler
-import com.fruitscale.ananas.login.SessionManager
+import com.fruitscale.ananas.service.SessionService
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.longSnackbar
@@ -18,13 +23,17 @@ import org.matrix.androidsdk.HomeserverConnectionConfig
  *
  * TODO: Add username and phone number login options
  */
-class LoginActivity : AppCompatActivity(), AnkoLogger {
+class LoginActivity : AppCompatActivity(), ServiceConnection, AnkoLogger {
     var mLoggingIn = false
     var mProgressDialog: AlertDialog? = null
+    var mSessionService: SessionService? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        // set up session service
+        bindService(Intent(this, SessionService::class.java), this, Context.BIND_AUTO_CREATE)
 
         mLoggingIn = false
         sign_in_button.setOnClickListener {
@@ -38,6 +47,11 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        unbindService(this)
+    }
+
     fun loginWithFormData() {
         login(server.text.toString(), email.text.toString(), password.text.toString())
     }
@@ -49,7 +63,7 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
 
         mProgressDialog = indeterminateProgressDialog(R.string.logging_in, R.string.please_wait).apply { setCancelable(false) }
 
-        LoginHandler(this).newSessionWithMail(HomeserverConnectionConfig(Uri.parse(homeserverUrl)), username, password, { credentials -> SessionManager.onTokenCorrupted(credentials) },
+        LoginHandler(this).newSessionWithMail(HomeserverConnectionConfig(Uri.parse(homeserverUrl)), username, password, { credentials -> mSessionService?.mSessionManager?.onTokenCorrupted(credentials) },
                 SimplerCallback(
                         {
                             // on matrix error
@@ -73,15 +87,22 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
                             showRetrySnackbar()
 
                         },
-                        {
+                        { session ->
                             // on success
                             info { "Successful log in." }
 
                             doneLoggingIn()
 
-                            longToast("Welcome, ${it.myUser.user_id}")
+                            //longToast("Welcome, ${session.myUserId}")
 
-                            startActivity<MainActivity>()
+                            mSessionService?.mSessionManager?.let {
+                                it.addSession(session)
+                                it.setCurrentSession(session.myUserId)
+                            }
+
+                            startActivity(intentFor<MainActivity>())
+
+                            finish()
                         }
                 ))
     }
@@ -95,5 +116,13 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
         longSnackbar(contentView!!, R.string.log_in_failed, R.string.retry) {
             loginWithFormData()
         }
+    }
+
+    override fun onServiceDisconnected(name: ComponentName) {
+        mSessionService = null
+    }
+
+    override fun onServiceConnected(name: ComponentName, binder: IBinder) {
+        mSessionService = (binder as SessionService.SessionBinder).service
     }
 }

@@ -2,8 +2,12 @@ package com.fruitscale.ananas
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
@@ -16,19 +20,23 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.fruitscale.ananas.adapters.ChatListAdapter
+import com.fruitscale.ananas.service.SessionService
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import org.jetbrains.anko.toast
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, ServiceConnection {
     private lateinit var mRecyclerViewAdapter: RecyclerView.Adapter<*>
     private lateinit var mRecyclerViewLayoutManager: RecyclerView.LayoutManager
     private val mChatList: MutableList<Chat> = arrayListOf()
+    var mSessionService: SessionService? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        bindService(Intent(this, SessionService::class.java), this, Context.BIND_AUTO_CREATE)
 
         // Toolbar
         setSupportActionBar(toolbar)
@@ -110,6 +118,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         recyclerView_chatList.addItemDecoration(dividerItemDecoration)
     }
 
+    override fun onStop() {
+        super.onStop()
+        unbindService(this)
+    }
+
     override fun onBackPressed() {
         //drawer
         (findViewById(R.id.drawer_layout) as DrawerLayout).let {
@@ -155,5 +168,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         (findViewById(R.id.drawer_layout) as DrawerLayout).closeDrawer(GravityCompat.START)
 
         return true
+    }
+
+    override fun onServiceDisconnected(name: ComponentName) {
+        mSessionService = null
+    }
+
+    override fun onServiceConnected(name: ComponentName, binder: IBinder) {
+        val sessionService = (binder as SessionService.SessionBinder).service
+        mSessionService = sessionService
+
+        toast("Welcome, ${sessionService.mSessionManager.getCurrentSession()?.myUserId}")
     }
 }
