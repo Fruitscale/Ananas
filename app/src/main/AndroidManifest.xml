@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fruitscale.ananas">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,13 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.fruitscale.ananas.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="com.fruitscale.ananas.LoginActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -28,11 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.fruitscale.ananas.NewGroupActivity"
+            android:name=".NewGroupActivity"
             android:label="@string/create_new_group"
-            android:parentActivityName="com.fruitscale.ananas.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -42,23 +39,28 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name="com.fruitscale.ananas.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.fruitscale.ananas.MainActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fruitscale.ananas.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ChatActivity"
+            android:label="Chat"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.fruitscale.ananas.MainActivity" />
         </activity>
 
-        <activity
-            android:name="com.fruitscale.ananas.ChatActivity"
-            android:label="Chat"
-            android:parentActivityName="com.fruitscale.ananas.MainActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.fruitscale.ananas.MainActivity" />
-        </activity>
+        <service
+            android:name=".service.SessionService"
+            android:enabled="true"
+            android:exported="false"></service>
     </application>
+
 </manifest>
