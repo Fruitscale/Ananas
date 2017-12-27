@@ -9,7 +9,7 @@
 
     <string name="function_not_implemented">This function has not been implemented yet.</string>
 
-    <!-- Strings related to login -->
+    <!-- Strings -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
@@ -48,6 +48,12 @@
     <string name="pref_profile_title">Profile Settings</string>
     <string name="pref_theme_title">Theme &amp; Looks Settings</string>
     <string name="pref_ringtone_silent">Silent</string>
+    <string name="arrow_down_up_description">Arrow down or up</string>
+    <string name="logging_in">Logging in…</string>
+    <string name="please_wait">Please wait</string>
+    <string name="log_in_failed">Log in failed</string>
+    <string name="retry">Retry</string>
+    <string name="logo_description">Ananas logo</string>
 
 
     <string-array name="pref_privacy_contact_type">
