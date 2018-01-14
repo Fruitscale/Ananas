@@ -34,10 +34,11 @@ class LoginStorage(val context: Context): AnkoLogger {
         val jsonArray = JSONArray(jsonString)
 
         return jsonArray.toList().map {
-            if(it is JSONObject)
+            if(it is JSONObject) {
                 HomeserverConnectionConfig.fromJson(it)
-            else
+            } else {
                 throw InvalidCredentialsJsonException()
+            }
         }
     }
 
@@ -61,8 +62,9 @@ class LoginStorage(val context: Context): AnkoLogger {
      * @param config The credentials
      */
     fun addCredentials(config: HomeserverConnectionConfig) {
-        if(config.credentials == null)
+        if(config.credentials == null) {
             return
+        }
 
         val credentials = getCredentials().map { it }.plus(config)
 
@@ -75,8 +77,9 @@ class LoginStorage(val context: Context): AnkoLogger {
      * @param config The credentials
      */
     fun removeCredentials(config: HomeserverConnectionConfig) {
-        if(config.credentials == null)
+        if(config.credentials == null) {
             return
+        }
 
         val credentials = getCredentials().filter { it.credentials.userId != config.credentials.userId }
 
@@ -89,8 +92,9 @@ class LoginStorage(val context: Context): AnkoLogger {
      * @param config The credentials
      */
     fun replaceCredentials(config: HomeserverConnectionConfig) {
-        if(config.credentials == null)
+        if(config.credentials == null) {
             return
+        }
 
         val credentials = getCredentials().filter { it.credentials.userId != config.credentials.userId }.plus(config)
 
