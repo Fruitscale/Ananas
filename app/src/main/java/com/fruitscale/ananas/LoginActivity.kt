@@ -55,8 +55,9 @@ class LoginActivity : AppCompatActivity(), ServiceConnection, AnkoLogger {
             loginWithFormData()
         }
         password.setOnEditorActionListener { textView, actionId, keyEvent ->
-            if(actionId == EditorInfo.IME_ACTION_GO)
+            if(actionId == EditorInfo.IME_ACTION_GO) {
                 loginWithFormData()
+            }
             true
         }
 
@@ -129,8 +130,10 @@ class LoginActivity : AppCompatActivity(), ServiceConnection, AnkoLogger {
     }
 
     fun login(homeserverUrl: String, identification: String, password: String) {
-        if(mLoggingIn)
+        if(mLoggingIn) {
             return
+        }
+
         mLoggingIn = true
 
         mProgressDialog = indeterminateProgressDialog(R.string.logging_in, R.string.please_wait).apply { setCancelable(false) }

@@ -50,9 +50,6 @@ dependencies {
     compile "org.jetbrains.anko:anko-design:$anko_version"
     compile "org.jetbrains.anko:anko-commons:$anko_version"
 
-    // klaxon (JSON)
-    compile 'com.beust:klaxon:0.30'
-
     // https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber
     compile group: 'com.googlecode.libphonenumber', name: 'libphonenumber', version: '8.8.8'
 

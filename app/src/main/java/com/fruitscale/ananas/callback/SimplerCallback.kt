@@ -21,24 +21,27 @@ class SimplerCallback<T>(private val onMatrixError: ((MatrixError) -> Unit)? = n
                          private val onUnexpectedError: ((Exception) -> Unit)? = null,
                          private val onSuccess: (T) -> Unit): SimpleApiCallback<T>(), AnkoLogger {
     override fun onMatrixError(e: MatrixError) {
-        if(onMatrixError == null)
+        if(onMatrixError == null) {
             error { "Matrix error: $e" }
-        else
+        } else {
             onMatrixError.invoke(e)
+        }
     }
 
     override fun onNetworkError(e: Exception) {
-        if(onNetworkError == null)
+        if(onNetworkError == null) {
             error { "Network error: $e" }
-        else
+        } else {
             onNetworkError.invoke(e)
+        }
     }
 
     override fun onUnexpectedError(e: Exception) {
-        if(onUnexpectedError == null)
+        if(onUnexpectedError == null) {
             error { "Unexpected error: $e" }
-        else
+        } else {
             onUnexpectedError.invoke(e)
+        }
     }
 
     override fun onSuccess(info: T) {
